@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         val fragment = MovieListFragment.newInstance()
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
-            .addToBackStack(null)
             .commit()
     }
 }
