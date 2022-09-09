@@ -8,6 +8,7 @@ interface Dependencies {
         override fun module(feature: Feature): BaseModule<*> {
             return when(feature) {
                 Feature.MOVIE_LIST -> MovieListModule(coreModule)
+                Feature.MOVIE_DETAILS -> MovieDetailsModule(coreModule)
             }
         }
     }

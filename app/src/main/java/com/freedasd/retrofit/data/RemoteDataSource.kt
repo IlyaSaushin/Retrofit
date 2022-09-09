@@ -1,4 +1,4 @@
-package com.freedasd.retrofit.data.remote
+package com.freedasd.retrofit.data
 
 import com.freedasd.retrofit.data.remote.retrofit.MovieCloud
 import com.freedasd.retrofit.data.remote.retrofit.Service
