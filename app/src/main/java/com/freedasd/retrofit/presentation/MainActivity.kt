@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.freedasd.retrofit.MainViewModel
 import com.freedasd.retrofit.R
 import com.freedasd.retrofit.databinding.ActivityMainBinding
+import com.freedasd.retrofit.presentation.MovieDetailsFragment.Companion.newInstance
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,13 +17,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        initFrag()
+        initFragment()
     }
 
-    private fun initFrag() {
+    private fun initFragment() {
         val fragment = MovieListFragment.newInstance()
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
+            .addToBackStack(null)
             .commit()
     }
 }

@@ -1,9 +1,11 @@
 package com.freedasd.retrofit.presentation.models
 
+import android.os.Parcelable
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.freedasd.retrofit.core.Same
+import kotlinx.parcelize.Parcelize
 
 interface MovieUi : Same<MovieUi> {
 
@@ -12,6 +14,8 @@ interface MovieUi : Same<MovieUi> {
     fun map(movieTitle: TextView, image: ImageView, publication: TextView) = Unit
 
     fun mapError(errorField: TextView) = Unit
+
+    fun id() : Long = 0
 
     fun mapDetails(
         name: TextView,
@@ -29,6 +33,7 @@ interface MovieUi : Same<MovieUi> {
         }
     }
 
+    @Parcelize
     class Base(
         private val id: Long,
         private val title: String,
@@ -36,7 +41,7 @@ interface MovieUi : Same<MovieUi> {
         private val description: String?,
         private val publication_date: String?,
         private val byLine: String?,
-        ) : MovieUi {
+        ) : MovieUi, Parcelable {
 
         override fun map(movieTitle: TextView, image: ImageView, publication: TextView) {
             movieTitle.text = title
@@ -57,5 +62,7 @@ interface MovieUi : Same<MovieUi> {
             firstLine.text = byLine
             Glide.with(image).load(imageUrl).into(image)
         }
+
+        override fun id(): Long = id
     }
 }

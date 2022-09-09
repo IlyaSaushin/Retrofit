@@ -12,11 +12,11 @@ data class MovieCloud (
     val title: String?,
     @SerializedName("multimedia")
     val multimedia: Multimedia?,
-    @SerializedName("description")
+    @SerializedName("summary_short")
     val description: String?,
     @SerializedName("publication_date")
     val date: String?,
-    @SerializedName("byLine")
+    @SerializedName("byline")
     val byLine: String?
 ) {
     fun mapToData(mapper: CloudToDataMapper, id: Long) = mapper.map(this, id)

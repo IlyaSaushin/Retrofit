@@ -14,6 +14,6 @@ class MovieListModule(private val coreModule: CoreModule) : BaseModule<MovieList
         val interactor = coreModule.interactor
         val toUiMapper = BaseMovieDomainToUiMapper()
         val uiMapper = BaseMovieListDomainToUiMapper(toUiMapper)
-        return MovieListViewModel(interactor, render, uiMapper)
+        return MovieListViewModel(interactor, render, uiMapper, toUiMapper)
     }
 }

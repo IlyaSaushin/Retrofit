@@ -1,10 +1,14 @@
 package com.freedasd.retrofit.data.models
 
+import com.freedasd.retrofit.data.local.MovieDb
+import com.freedasd.retrofit.data.mappers.DataToDbMapper
 import com.freedasd.retrofit.data.mappers.MovieDataToDomainMapper
 
 interface MovieData {
 
     fun <T> map(mapper: MovieDataToDomainMapper<T>) : T
+
+    fun mapToDb(mapper: DataToDbMapper) : MovieDb
 
     fun id() : Long
 
@@ -27,5 +31,7 @@ interface MovieData {
         )
 
         override fun id(): Long = id
+
+        override fun mapToDb(mapper: DataToDbMapper) = MovieDb(id, title, imageUrl, description, publication_date, byLine)
     }
 }
